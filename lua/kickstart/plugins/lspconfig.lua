@@ -164,6 +164,9 @@ return {
           ---@type lspconfig.settings.lua_ls
           settings = {
             Lua = {
+              diagnostics = {
+                gloals = { 'vim' },
+              },
               format = { enable = false }, -- Disable formatting (formatting is done by stylua)
             },
           },
