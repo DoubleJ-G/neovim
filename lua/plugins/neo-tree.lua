@@ -13,17 +13,12 @@ return {
   },
   lazy = false,
   keys = {
-    { '<leader>nt', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
-  },
-  ---@module 'neo-tree'
-  ---@type neotree.Config
-  opts = {
-    filesystem = {
-      window = {
-        mappings = {
-          ['\\'] = 'close_window',
-        },
-      },
+    {
+      '<leader>nt',
+      function()
+        require('neo-tree.command').execute { toggle = true }
+      end,
+      { opts = { toggle = true }, desc = 'NeoTree reveal' },
     },
   },
 }
