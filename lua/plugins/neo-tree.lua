@@ -12,6 +12,15 @@ return {
     'MunifTanjim/nui.nvim',
   },
   lazy = false,
+  opts = {
+    filesystem = {
+      filtered_items = {
+        visible = true,
+        hide_dotfiles = false,
+        hide_gitignored = false,
+      },
+    },
+  },
   keys = {
     {
       '<leader>nt',
