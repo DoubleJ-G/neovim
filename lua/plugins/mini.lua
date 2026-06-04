@@ -39,6 +39,10 @@ return {
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function() return '%2l:%-2v' end
 
+      local bufremove = require('mini.bufremove')
+      bufremove.setup()
+      vim.keymap.set('n', '<leader>bd', bufremove.delete, { desc = 'Buffer [D]elete' })
+
       -- ... and there is more!
       --  Check out: https://github.com/nvim-mini/mini.nvim
     end,
