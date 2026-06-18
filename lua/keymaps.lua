@@ -64,4 +64,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Restart LSP if it stops working
 vim.keymap.set('n', '<leader>rs', ':lsp restart<CR>', { desc = 'Restart LSP' })
 
+-- LspInfo is not registered on Neovim 0.11+ due to early-exit guard in nvim-lspconfig
+vim.api.nvim_create_user_command('LspInfo', ':checkhealth vim.lsp', { desc = 'Alias to checkhealth vim.lsp' })
+
 -- vim: ts=2 sts=2 sw=2 et
