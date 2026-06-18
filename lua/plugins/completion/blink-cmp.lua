@@ -6,6 +6,11 @@ return {
     event = 'VimEnter',
     version = '1.*',
     dependencies = {
+      {
+        'giuxtaposition/blink-cmp-copilot',
+        lazy = true,
+        dependencies = { 'zbirenbaum/copilot.lua' },
+      },
       -- Snippet Engine
       {
         'L3MON4D3/LuaSnip',
@@ -75,7 +80,15 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets' },
+        default = { 'lsp', 'path', 'snippets', 'copilot' },
+        providers = {
+          copilot = {
+            name = 'copilot',
+            module = 'blink-cmp-copilot',
+            score_offset = 100,
+            async = true,
+          },
+        },
       },
 
       snippets = { preset = 'luasnip' },
