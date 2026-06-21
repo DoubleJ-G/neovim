@@ -83,16 +83,12 @@ vim.keymap.set('n', '<leader>gd', '<cmd>Gvdiffsplit<CR>', { desc = '[G]it [d]iff
 vim.keymap.set('n', '<leader>gb', '<cmd>Git blame<CR>', { desc = '[G]it [b]lame' })
 vim.keymap.set('n', '<leader>gr', '<cmd>Gread<CR>', { desc = '[G]it [r]ead (checkout file)' })
 vim.keymap.set('n', '<leader>gw', '<cmd>Gwrite<CR>', { desc = '[G]it [w]rite (stage file)' })
--- Telescope git pickers
-vim.keymap.set('n', '<leader>gl', function() require('telescope.builtin').git_commits() end,
-  { desc = '[G]it [l]og (commits)' })
-vim.keymap.set('n', '<leader>gL', function() require('telescope.builtin').git_bcommits() end,
-  { desc = '[G]it [L]og buffer commits' })
-vim.keymap.set('n', '<leader>gB', function() require('telescope.builtin').git_branches() end,
-  { desc = '[G]it [B]ranches' })
-vim.keymap.set('n', '<leader>gs', function() require('telescope.builtin').git_status() end,
-  { desc = '[G]it [s]tatus (telescope)' })
-vim.keymap.set('n', '<leader>gS', function() require('telescope.builtin').git_stash() end, { desc = '[G]it [S]tash' })
+-- Snacks git pickers
+vim.keymap.set('n', '<leader>gl', function() Snacks.picker.git_log() end, { desc = '[G]it [l]og (commits)' })
+vim.keymap.set('n', '<leader>gL', function() Snacks.picker.git_log_file() end, { desc = '[G]it [L]og buffer commits' })
+vim.keymap.set('n', '<leader>gB', function() Snacks.picker.git_branches() end, { desc = '[G]it [B]ranches' })
+vim.keymap.set('n', '<leader>gs', function() Snacks.picker.git_status() end, { desc = '[G]it [s]tatus' })
+vim.keymap.set('n', '<leader>gS', function() Snacks.picker.git_stash() end, { desc = '[G]it [S]tash' })
 
 -- LspInfo is not registered on Neovim 0.11+ due to early-exit guard in nvim-lspconfig
 vim.api.nvim_create_user_command('LspInfo', ':checkhealth vim.lsp', { desc = 'Alias to checkhealth vim.lsp' })

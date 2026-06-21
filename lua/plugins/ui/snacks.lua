@@ -8,6 +8,16 @@ return {
   ---@type snacks.Config
   opts = {
     notifier = { enabled = true },
+    picker = {
+      ui_select = true,
+      layout = { preset = 'ivy' },
+      sources = {
+        files = {
+          hidden = true,
+          exclude = { '.git' },
+        },
+      },
+    },
     dashboard = {
       preset = {
         header = [[
@@ -49,10 +59,10 @@ return {
           gap = 1,
           padding = 1,
           keys = {
-            { icon = ' ', key = 'f', desc = 'Find File',    action = ':Telescope find_files' },
-            { icon = ' ', key = 'r', desc = 'Recent Files', action = ':Telescope oldfiles' },
+            { icon = ' ', key = 'f', desc = 'Find File',    action = function() Snacks.picker.files() end },
+            { icon = ' ', key = 'r', desc = 'Recent Files', action = function() Snacks.picker.recent() end },
             { icon = ' ', key = 'e', desc = 'File Browser', action = ':Neotree toggle' },
-            { icon = ' ', key = 'g', desc = 'Live Grep',    action = ':Telescope live_grep' },
+            { icon = ' ', key = 'g', desc = 'Live Grep',    action = function() Snacks.picker.grep() end },
             { icon = '󰒲 ', key = 'l', desc = 'Lazy',         action = ':Lazy' },
             { icon = ' ', key = 'q', desc = 'Quit',         action = ':qa' },
           },
