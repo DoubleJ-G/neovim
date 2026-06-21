@@ -62,31 +62,6 @@ return {
         capabilities = require('blink.cmp').get_lsp_capabilities(),
       })
 
-      vim.lsp.config('ts_ls', {
-        settings = {
-          preferences = {
-            importModuleSpecifierPreference = 'non-relative',
-            importModuleSpecifierEnding = 'minimal',
-          },
-        },
-      })
-
-      vim.lsp.config('lua_ls', {
-        settings = {
-          Lua = {
-            completion = { callSnippet = 'Replace' },
-          },
-        },
-      })
-
-      vim.lsp.config('cssls', {
-        settings = {
-          css = {
-            lint = { unknownAtRules = 'ignore' },
-          },
-        },
-      })
-
       require('mason-tool-installer').setup {
         ensure_installed = {
           'stylua',
