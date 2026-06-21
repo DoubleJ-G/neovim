@@ -17,7 +17,9 @@ return {
               { buffer = event.buf, desc = 'LSP: ' .. desc }) end
 
           map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+          map('<leader>ca', function()
+            vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
+          end, '[C]ode [A]ction')
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
@@ -49,6 +51,15 @@ return {
               '[T]oggle Inlay [H]ints')
           end
 
+          if client and client.name == 'ts_ls' then
+            map('<leader>ci', function()
+              vim.lsp.buf.code_action {
+                context = { only = { 'source.addMissingImports.ts' }, diagnostics = {} },
+                apply = true,
+              }
+            end, '[C]ode add missing [I]mports')
+          end
+
           if client and client.name == 'eslint' then
             vim.api.nvim_create_autocmd('BufWritePre', {
               buffer = event.buf,
@@ -62,7 +73,7 @@ return {
         capabilities = require('blink.cmp').get_lsp_capabilities(),
       })
 
-      require('mason-tool-installer').setup {
+require('mason-tool-installer').setup {
         ensure_installed = {
           'stylua',
           'ts_ls',

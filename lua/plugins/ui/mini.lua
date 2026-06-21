@@ -39,6 +39,8 @@ return {
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function() return '%2l:%-2v' end
 
+      require('mini.pairs').setup()
+
       local bufremove = require('mini.bufremove')
       bufremove.setup()
       vim.keymap.set('n', '<leader>bd', bufremove.delete, { desc = 'Buffer [D]elete' })

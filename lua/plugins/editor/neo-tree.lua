@@ -19,6 +19,10 @@ return {
         hide_dotfiles = false,
         hide_gitignored = false,
       },
+      follow_current_file = {
+        enabled = true,
+        leave_dirs_open = false,
+      },
     },
     event_handlers = {
       {
@@ -34,7 +38,7 @@ return {
     {
       '<leader>nt',
       function()
-        require('neo-tree.command').execute { toggle = true }
+        require('neo-tree.command').execute { toggle = true, reveal = true }
       end,
       { opts = { toggle = true }, desc = 'NeoTree reveal' },
     },
