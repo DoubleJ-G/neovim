@@ -23,6 +23,15 @@ vim.diagnostic.config {
 
 vim.keymap.set('n', '<C-s>', ':update<CR>', { desc = 'Write', silent = true })
 
+vim.keymap.set('n', '<leader>bD', function()
+  local current = vim.api.nvim_get_current_buf()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if buf ~= current and vim.api.nvim_buf_is_loaded(buf) then
+      require('mini.bufremove').delete(buf, false)
+    end
+  end
+end, { desc = 'Buffer [D]elete all others' })
+
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
