@@ -97,4 +97,8 @@ vim.keymap.set('n', '<leader>gS', function() require('telescope.builtin').git_st
 -- LspInfo is not registered on Neovim 0.11+ due to early-exit guard in nvim-lspconfig
 vim.api.nvim_create_user_command('LspInfo', ':checkhealth vim.lsp', { desc = 'Alias to checkhealth vim.lsp' })
 
+-- Move selected lines up/down in visual mode
+vim.keymap.set('x', 'J', ":move '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
+vim.keymap.set('x', 'K', ":move '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
+
 -- vim: ts=2 sts=2 sw=2 et
