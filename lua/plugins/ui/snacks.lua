@@ -8,6 +8,7 @@ return {
   ---@type snacks.Config
   opts = {
     notifier = { enabled = true },
+    terminal = { enabled = true },
     dashboard = {
       preset = {
         header = [[

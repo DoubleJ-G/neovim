@@ -76,4 +76,7 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- Start with all folds open
+vim.o.foldlevelstart = 99
+
 -- vim: ts=2 sts=2 sw=2 et
