@@ -2,6 +2,10 @@
 require('lazy').setup({
   { import = 'plugins' },
 }, {
+  -- In VSCode/Cursor (vscode-neovim), only load plugins marked with `vscode = true`
+  defaults = {
+    cond = function(plugin) return not vim.g.vscode or plugin.vscode end,
+  },
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table

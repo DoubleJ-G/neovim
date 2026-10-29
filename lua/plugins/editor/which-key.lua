@@ -34,6 +34,11 @@ return {
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
         { '<leader>w', group = '[W]orkspace session' },
         { '<leader>x', group = 'Trouble [X]' },
+        { '<leader>b', group = '[B]uffer' },
+        { '<leader>c', group = '[C]ode' },
+        { '<leader>d', group = '[D]ebug' },
+        { '<leader>n', group = '[N]eo-tree' },
+        { '<leader>r', group = '[R]ename / Restart' },
         { 'gr', group = 'LSP Actions', mode = { 'n' } },
       },
     },

@@ -3,6 +3,7 @@
 return {
   { -- Collection of various small independent plugins/modules
     'nvim-mini/mini.nvim',
+    vscode = true,
     config = function()
       -- Better Around/Inside textobjects
       --
@@ -25,6 +26,9 @@ return {
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+
+      -- The rest is UI / insert mode, which VSCode handles itself
+      if vim.g.vscode then return end
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,

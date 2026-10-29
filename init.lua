@@ -105,5 +105,9 @@ require 'lazy-bootstrap'
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
 
+-- [[ VSCode / Cursor (vscode-neovim) keymaps ]]
+--  Must come after plugins so these override plugin-defined keymaps
+if vim.g.vscode then require 'vscode-keymaps' end
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
