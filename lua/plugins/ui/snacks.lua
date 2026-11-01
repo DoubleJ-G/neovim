@@ -18,6 +18,7 @@ return {
         },
       },
     },
+    terminal = { enabled = true },
     dashboard = {
       preset = {
         header = [[
