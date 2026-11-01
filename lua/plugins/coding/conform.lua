@@ -26,6 +26,7 @@ return {
           javascriptreact = true,
           typescriptreact = true,
           astro = true,
+          dart = true,
         }
         if enabled_filetypes[vim.bo[bufnr].filetype] then
           return { timeout_ms = 500 }
@@ -47,6 +48,7 @@ return {
         javascriptreact = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
         typescript = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
         typescriptreact = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
+        dart = { 'dart_format' },
       },
     },
   },
